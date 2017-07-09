@@ -24,7 +24,7 @@ class ContactViewSet(viewsets.ModelViewSet):
         contact.phone_number = request.data['phone_number']
         contact.pic = request.data['pic']
         contact.save()
-        return HttpResponse(contact)
+        return HttpResponse({'detail': 'Contact Updates'})
 
     def delete(self,request,pk=None):
         obj = self.queryset.get(pk=pk)
