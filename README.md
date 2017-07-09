@@ -34,15 +34,16 @@ $ bower install
 $ cd .. #Return to application directory
 ```
 
+Then we then need to start our Django Server:
+```
+$ python server/manage.py runserver
+```
 If migrations are necessary:
 ```
 $ python server/manage.py makemigrations contacts
 $ python server/manage.py migrate
 ```
-Then we then need to start our Django Server:
-```
-$ python server/manage.py runserver
-```
+
 Open a new terminal tab and navigate to the client folder. We will start our node server to serve our front end:
 ```
 Once in the client folder run:
