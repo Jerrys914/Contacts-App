@@ -16,33 +16,33 @@ https://conda.io/docs/install/full.html
 
 After Anaconda is installed:
 ```
-$ conda mkvirtualenv env_name
-          Then
-$ source activate env_name #MacOS
+$ conda create -n env_name
+```
+Navigate to the root directory of the folder and activate the environment:
+```
+$ source activate env_name *MacOS
            OR
-$ activate env_name #Windows
+$ activate env_name *Windows
 ```
 
-Navigate to the application directory and enter:
+Navigate to the application directory(contacts_app) and enter:
 ```
 $ pip install -r requirements.txt
-$ cd client #Enter client folder
+$ cd client
 $ npm install
 $ bower install
 $ cd .. #Return to application directory
 ```
 
-We then need to start our Django Server:
-```
-$ python server/manage.py runserver
-```
-
-If no errors:
+If migrations are necessary:
 ```
 $ python server/manage.py makemigrations contacts
 $ python server/manage.py migrate
 ```
-
+Then we then need to start our Django Server:
+```
+$ python server/manage.py runserver
+```
 Open a new terminal tab and navigate to the client folder. We will start our node server to serve our front end:
 ```
 Once in the client folder run:
@@ -63,5 +63,7 @@ Upload Photo *not required
 ```
 
 Once contacts are created you can search by Name or Number.
+
 To edit a contact click the edit button and make any changes.
+
 To delete the contact click the trash can button.
