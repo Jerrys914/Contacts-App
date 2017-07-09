@@ -15,7 +15,6 @@ contacts
     }
 
     $scope.destroy = (contact) => {
-      console.log(contact)
       ContactService.http().delete({id:contact.id}).$promise.then(resp=>{
         $window.location='/';
       })

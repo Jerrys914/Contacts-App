@@ -4,7 +4,6 @@ contacts
     $scope.contact.number = $scope.contact.phone_number.substr($scope.contact.phone_number.length - 10)
     $scope.countriesList = CountriesService.countryCodes
     $scope.submitContact = () => {
-      // $scope.uploadPic($scope.picFile) //For Image Upload
       let formatNumber= $scope.contact.countryCode.dial_code + $scope.contact.number
       $scope.contact.number = $scope.contact.countryCode.dial_code + $scope.contact.number
       let contact = {}

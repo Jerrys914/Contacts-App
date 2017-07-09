@@ -11,7 +11,6 @@ class ContactViewSet(viewsets.ModelViewSet):
 
     def create(self, request):
         serializer = ContactSerializer
-        print(request.data)
         new_contact = Contact(name=request.data['name'],phone_number=request.data['number'],pic='/assets/images/default.jpg')
         new_contact.save()
         return redirect('/')
