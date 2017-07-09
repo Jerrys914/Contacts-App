@@ -21,7 +21,8 @@
   <!-- All Contacts View -->
   <div ng-if="showContacts" ng-repeat="contact in contactList | filter:searchText track by $index">
     <div class='well well-lg' style="background:#E4E6FF; text-align:center; font-size:25px; width:30%; margin:auto;">
-      <i class="material-icons" style="font-size: 48px;">account_circle</i><br>
+      <!-- <i class="material-icons" style="font-size: 48px;">account_circle</i><br> -->
+      <img class ="thumb" src="{{contact.pic.substr(30)}}"></img>
       <strong style="width:50%; margin:auto;">{{ contact.name }}</strong><br />
       <strong>{{ contact.phone_number }}<a href="tel:{{contact.phone_number}}"><i style="font-size: 36px;" class="material-icons">phone_in_talk</i></a></strong><br />
       <span>
