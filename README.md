@@ -49,3 +49,19 @@ Once in the client folder run:
 $ npm start
 ```
 Now go to localhost:8081 in your browser to use the app!
+
+## Usage
+
+You can use the add contact button or click the new contact tab to create a new contact.
+
+New Contact:
+```
+Enter Name *required
+Select Country *required
+Enter Phone number *required
+Upload Photo *not required
+```
+
+Once contacts are created you can search by Name or Number.
+To edit a contact click the edit button and make any changes.
+To delete the contact click the trash can button.
