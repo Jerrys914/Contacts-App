@@ -48,3 +48,4 @@ Open a new terminal tab and navigate to the client folder. We will start our nod
 Once in the client folder run:
 $ npm start
 ```
+Now go to localhost:8081 in your browser to use the app!
