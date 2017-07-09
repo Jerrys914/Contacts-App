@@ -64,6 +64,6 @@ Upload Photo *not required
 
 Once contacts are created you can search by Name or Number.
 
-To edit a contact click the edit button and make any changes.
+To edit a contact click the edit button and make any changes and submit.
 
 To delete the contact click the trash can button.
