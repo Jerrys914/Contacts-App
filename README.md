@@ -1,6 +1,6 @@
 # Contacts-App
 
-`contacts_application` You are able to create a contact list, remove contacts, and call contacts.
+`contacts_app` You are able to create a contact list, remove contacts, and call contacts.
 
 1. [Installing](#installation)
 2. [Basic Usage](#usage)
