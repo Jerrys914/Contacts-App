@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html ng-app="CONTACTS_APP">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="styles/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,800|Source+Sans+Pro:400,600" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <title> Contacts Application</title>
+
+    <!--  Angular Setup -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular-ui-mask/dist/mask.js"></script>
+    <script src="bower_components/angular-libphonenumber/dist/libphonenumber.full.js"></script>
+    <script src="bower_components/angular-libphonenumber/dist/angular-libphonenumber.min.js"></script>
+    <script src="bower_components/ng-file-upload-shim/ng-file-upload-shim.min.js"></script> <!-- for no html5 browsers support -->
+    <script src="bower_components/ng-file-upload/ng-file-upload.min.js"></script>
+
+    <!-- Application Setup -->
+    <script src="public/appRoutes.js"></script>
+    <script src="public/app.js"></script>
+
+    <!--  Controllers -->
+    <script src="public/components/contacts/controllers/allContacts.ctrl.js"></script>
+    <script src="public/components/contacts/controllers/newContact.ctrl.js"></script>
+    <script src="public/components/contacts/controllers/editContact.ctrl.js"></script>
+
+    <!-- Services -->
+    <script src="public/components/contacts/services/contacts.service.js"></script>
+    <script src="public/components/contacts/services/countries.service.js"></script>
+
+  </head>
+  <body style="background-color:silver;">
+      <!-- GLOBAL NAV BAR FIXED TOP -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <!-- CONTAINER for NAV BAR -->
+      <div class="container">
+        <!-- NAV BAR TITLE -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">LoftSmart Challenge |</a>
+        </div>
+        <!-- NAV BAR -->
+        <div id="navbar" class="navbar-collapse collapse" uib-collapse="navCollapsed">
+            <!-- NAV BAR LEFT -->
+            <ul class="nav navbar-nav">
+              <li><a href="/#!/allContacts">All Contacts <span class="sr-only">(current)</span></a></li>
+              <li><a href="/#!/newContact">New Contact <span class="re-only"></span></a></li>
+            </ul>
+        </div><!--/.nav-collapse -->
+      </div> <!-- Closing NAV BAR container -->
+    </nav> <!-- CLOSING GLOBAL NAV BAR FIXED TOP -->
+
+    <!--  CONTAINER for NG-VIEW components -->
+    <div class="container-fluid">
+      <br /><br />
+      <div class="rows" id='ng-view' ui-view></div>
+      <!--  CONTAINER for NG-VIEW components -->
+    </div> <!-- Closing CONTAINER for NG-VIEW components -->
+  </body>
+</html>

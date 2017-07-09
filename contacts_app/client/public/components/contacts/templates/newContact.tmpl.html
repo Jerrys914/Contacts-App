@@ -1,0 +1,49 @@
+<div class="col-md-8 col-md-offset-2">
+  <div style="text-align:center" class="page-header"><h1>New Contact</h1></div>
+
+  <div class='well well-lg' style="background:#E4E6FF; width:75%; margin:auto;">
+    <div class="page-header"><h2 style="text-align:center">Contact Info</h2>
+    <form name='contactInfoForm' method='post' ng-submit="submitContact(contactInfoForm.$valid)" novalidate>
+
+      <!-- Name: Required-->
+      <div class="form-group" ng-class="{ 'has-error' : contactInfoForm.name.$invalid }">
+        <label>Name</label>
+        <input type="text" class="form-control" name="name" ng-model="contact.name" required>
+      </div>
+      <br />
+
+      <!-- Country: Required-->
+      <div class="form-group" ng-class="{ 'has-error' : contactInfoForm.name.$invalid }">
+        <label>Country</label></br>
+        <select
+          ng-model="contact.countryCode"
+          required
+          ng-options="country as country.name for country in countriesList">
+        </select>
+      </div>
+      <br />
+
+      <!-- Phone Number: Required-->
+      <div class="form-group" ng-class="{ 'has-error' : contactInfoForm.dob.$invalid }">
+        <label>Phone Number</label><br>
+        <input type="text" ng-change ui-mask="{{'(999) 999-9999'}}" name="number" ng-model="contact.number" required>
+      </div>
+      <!-- Photo Upload -->
+      <input type="file" ngf-select ng-model="picFile" name="file"
+               accept="image/*" ngf-max-size="2MB" required
+               ngf-model-invalid="errorFile">
+        <i ng-show="contactInfoForm.file.$error.maxSize">File too large
+            {{errorFile.size / 1000000|number:1}}MB: max 2M</i>
+            <div ng-show="contactInfoForm.file.$valid" >
+        <img ngf-thumbnail="picFile" class="thumb"> <button class='btn btn-danger' ng-click="picFile = null" ng-show="picFile">Remove</button>
+        
+      <!-- <div ngf-drop ng-model="files" class="drop-box">Drop</div> -->
+
+      <!-- Save Button -->
+      <form name="submitForm" method="post" ng-submit="submit()">
+        <button class='btn btn-info' ng-disabled="contactInfoForm.$invalid">Submit</button>
+      </form>
+    </form> <!-- CLOSING CONTACT INFO FORM INPUT FIELDS -->
+  </div>  <!-- CLOSE CONTACT INFO FORM -->
+</div> <!--  Closing New Contact VIEW -->
+<br><br>

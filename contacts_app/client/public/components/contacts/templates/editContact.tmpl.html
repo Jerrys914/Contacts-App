@@ -1,0 +1,163 @@
+<div class="col-md-8 col-md-offset-2">
+  <div class="page-header"><h1>Update Profile</h1></div>
+
+  <div>
+    <div ng-if="showBasicInfoForm" class="page-header"><h2>Basic Info</h2>
+    <form name='basicInfoForm' method='post' ng-submit="submitBasicInfo(basicInfoForm.$valid)" novalidate>
+      
+      <!-- Name: Required-->
+      <div class="form-group" ng-class="{ 'has-error' : basicInfoForm.name.$invalid }">
+        <label>Name</label>
+        <input type="text" class="form-control" name="name" ng-model="data.basicInfo.name" required>
+      </div>
+
+      <!-- Date Of Birth: Required-->
+      <div class="form-group" ng-class="{ 'has-error' : basicInfoForm.dob.$invalid }">
+        <label>Date of Birth</label>
+        <input type="date" class="form-control" name="dob" ng-model="data.basicInfo.dob" required>
+      </div>
+
+      <!-- Gender: Required-->
+      <div class="form-group" ng-class="{ 'has-error' : basicInfoForm.gender.$invalid }">
+        <label>Gender </label><br />
+        <input type="radio" display='inline' name="gender" value='Male' ng-model="data.basicInfo.gender" required>Male 
+        <input type="radio" display='inline' name="gender" value='Female' ng-model="data.basicInfo.gender">Female 
+        <input type="radio" display='inline' name="gender" value='Other' ng-model="data.basicInfo.gender">Other
+      </div>
+
+      <!-- Nationality: Required-->
+      <div class="form-group" ng-class="{ 'has-error' : basicInfoForm.nationality.$invalid }">
+        <label>Nationality</label>
+        <input type="text" class="form-control" name="nationality" ng-model="data.basicInfo.nationality" required>
+      </div>
+
+      <!-- Sport: Required-->
+      <div class="form-group" ng-class="{ 'has-error' : basicInfoForm.sport.$invalid }">
+        <label>Sport(s)</label>
+        <select name="sport" ng-model="data.basicInfo.sport" multiple="true" size="10" required>
+          <option ng-repeat="option in sportOptions" value="{{option}}">{{option}}</option>
+        </select>
+      </div>
+
+      <!-- Save & Continue Button -->
+      <button class='btn btn-info' ng-disabled="basicInfoForm.$invalid">Save & Continue</button>
+
+    </form> <!-- CLOSING BASIC INFO FORM INPUT FIELDS -->
+    </div>  <!-- CLOSE BASIC INFO FORM -->
+
+    <div ng-if="showHandlesForm" class="page-header"><h2>Social Media</h2>
+    <form name='handlesForm' method='post' ng-submit="submitHandles()">
+      
+      <div class="form-group">
+        <label>Twitter</label>
+        <input type="text" class="form-control" name="twitter" ng-model="data.handles.twitter">
+      </div>
+
+      <div class="form-group">
+        <label>Facebook</label>
+        <input type="text" class="form-control" name="facebook" ng-model="data.handles.facebook">
+      </div>
+
+      <div class="form-group">
+        <label>Instagram </label><br />
+        <input type="text" class="form-control" name="instagram" ng-model="data.handles.instagram"> 
+      </div>
+
+      <div class="form-group">
+        <label>Twitch</label>
+        <input type="text" class="form-control" name="twitch" ng-model="data.handles.twitch" >
+      </div>
+
+      <!-- Save & Continue Button -->
+      <button class='btn btn-info'>Save & Continue</button>
+      </form> <!-- CLOSING Handles FORM INPUT FIELD -->
+    </div>
+    <div ng-if="showAboutForm"><h2>About</h2>
+    <form name='aboutForm' method='post' ng-submit="submitAboutInfo(aboutForm.$valid)" novalidate>
+
+      <!-- Description: Required-->
+      <div class="form-group" ng-class="{ 'has-error' : aboutForm.description.$invalid }">
+        <label>Description</label>
+        <input type="text" class="form-control" name="description" style="height:100px" ng-model="data.about.description" required>
+      </div>
+
+      <!-- Location: Required-->
+      <div class="form-group" ng-class="{ 'has-error' : aboutForm.location.$invalid }">
+        <label>Locations</label>
+        <input type="text" class="form-control" name="location" ng-model="data.about.location" required>
+      </div>
+
+      <!-- Association: Required-->
+      <div class="form-group" ng-class="{ 'has-error' : aboutForm.association.$invalid }">
+        <label>Association </label>
+        <input type="text" class="form-control" name="association" ng-model="data.about.association" required>
+      </div>
+
+      <!-- Team: Required-->
+      <div class="form-group" ng-class="{ 'has-error' : aboutForm.team.$invalid }">
+        <label>Team</label>
+        <input type="text" class="form-control" name="team" ng-model="data.about.team" required>
+      </div>
+
+      <!-- Interests: Required-->
+      <div class="form-group" ng-class="{ 'has-error' : aboutForm.interests.$invalid }">
+        <label>Interests</label>
+        <input type="text" placeholder="Space, Music, Art" class="form-control" name="interests" ng-model="data.about.interests" required>
+      </div>
+
+      <!-- Charities: Optional-->
+      <div class="form-group" ng-class="{ 'has-error' : aboutForm.charities.$invalid }">
+        <label>Charities</label>
+        <input type="text" class="form-control" name="charities" ng-model="data.about.charities">
+      </div>
+
+      <!-- Married: Required-->
+      <div class="form-group" ng-class="{ 'has-error' : aboutForm.married.$invalid }">
+        <label>Married</label><br />
+        <input type="radio" name="married" value="true" ng-model="data.about.married" required> Yes
+        <input type="radio" name="married" value="false" ng-model="data.about.married"> No
+      </div>
+
+      <!-- Drink Alcohol: Required-->
+      <div class="form-group" ng-class="{ 'has-error' : aboutForm.drink.$invalid }">
+        <label>Drink Alcohol</label><br />
+        <input type="radio" name="drink" value="true" ng-model="data.about.drink" ng-selected='data.about.drink' required>Yes
+        <input type="radio" name="drink" value="false" ng-model="data.about.drink" ng-selected='!data.about.drink'> No
+      </div>      
+
+      <!-- Save & Review Button -->
+      <button class='btn btn-info' ng-disabled="aboutForm.$invalid">Save & Review</button>
+
+    </form> <!-- CLOSING ABOUT FORM INPUT FIELDS -->
+    </div> <!-- CLOSE ABOUT FORM-->
+    <div ng-if="review"><h2>Review</h2> <!-- Show Review Form -->
+      <div class='well well-lg' style="width:50%; margin:auto;">
+        <h4>Basic Info</h4><form ng-submit="editBasicInfo()"><button>Edit</button></form><br />
+        <strong>Name: </strong><span>{{data.basicInfo.name}}</span><br />
+        <strong>DoB: </strong> <span>{{data.basicInfo.dob}}</span><br />
+        <strong>Gender: </strong><span>{{data.basicInfo.gender}}</span><br />
+        <strong>Nationality: </strong><span>{{data.basicInfo.nationality}}</span><br />
+        <strong>Sport(s): </strong><span>{{data.basicInfo.sport}}</span><br /><br />
+
+        <h4>Social Media</h4><form ng-submit="editHandlesForm()"><button>Edit</button></form><br />
+        <strong>Twitter: </strong><span>{{data.handles.twitter}}</span><br />
+        <strong>Facebook: </strong><span>{{data.handles.facebook}}</span><br />
+        <strong>Instagram: </strong><span>{{data.handles.instagram}}</span><br />
+        <strong>Twitch: </strong><span>{{data.handles.twitch}}</span><br />
+
+        <h4>About</h4><form ng-submit="editAboutForm()"><button>Edit</button></form><br />
+        <strong>Description: </strong><span>{{data.about.description}}</span><br />
+        <strong>Location: </strong><span>{{data.about.location}}</span><br />
+        <strong>Association: </strong><span>{{data.about.association}}</span><br />
+        <strong>Team: </strong><span>{{data.about.team}}</span><br />
+        <strong>Interests: </strong><span>{{data.about.interests}}</span><br />
+        <strong>Charaties: </strong><span>{{data.about.charaties}}</span><br />
+        <strong>Married: </strong><span>{{data.about.married}}</span><br />
+        <strong>Drinks Alcohol: </strong><span>{{data.about.drink}}</span><br /><br />
+        <form name="reviewForm" method="post" ng-submit="submitUpdated()">
+          <button class='btn btn-info'>Submit</button>
+        </form>
+      </div>
+    </div> <!-- Close Review form -->
+</div> <!--  Closing Update Profile VIEW -->
+<br><br>

@@ -1,0 +1,40 @@
+<div>
+  <div style="text-align:center" class="page-header"><h1>All Contacts</h1></div>
+  <!-- Input Field / Search Bar  -->
+  <div align='center'>
+    <form name='searchAllContacts'>
+      <div class = "form-group">
+        <input
+          type='text',
+          name='searchAllContacts',
+          ng-model='searchText',
+          class="form-control",
+          placeholder='Search Contacts by Name or Number...'
+          />
+      </div>
+    </form>
+    <form action="/#!/newContact">
+      <input class='btn btn-info' type="submit" value="Add New Contact" />
+    </form>
+  </div>
+  <br />
+  <!-- All Contacts View -->
+  <div ng-if="showContacts" ng-repeat="contact in contactList | filter:searchText track by $index">
+    <div class='well well-lg' style="background:#E4E6FF; text-align:center; font-size:25px; width:30%; margin:auto;">
+      <i class="material-icons" style="font-size: 48px;">account_circle</i><br>
+      <strong style="width:50%; margin:auto;">{{ contact.name }}</strong><br />
+      <strong>{{ contact.phone_number }}<a href="tel:{{contact.phone_number}}"><i style="font-size: 36px;" class="material-icons">phone_in_talk</i></a></strong><br />
+      <span>
+        <button class="btn" title="DELETE" id="deleteButton" type="button" ng-click="destroy(contact)">
+          <a href="#"><i class="material-icons" id="deleteIcon">delete</i></a>
+        </button>
+      </span>
+      <button type="button" class="btn" title="EDIT" ng-click="edit(contact)">
+        <a href="#"><i class="material-icons">border_color</i><a>
+      </button>
+    </div>
+    <br />
+</div>
+<div ng-if="!showContacts" class='well well-lg' style="position:center; width:50%; margin:auto; text-align:center">
+  <h1>No Contacts Yet</h1>
+</div>
