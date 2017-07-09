@@ -3,16 +3,16 @@
   <!-- Input Field / Search Bar  -->
   <div align='center'>
     <form name='searchAllContacts'>
-      <div class = "form-group">
+      <div style="width:75%; margin:auto" class = "form-group">
         <input
           type='text',
           name='searchAllContacts',
           ng-model='searchText',
           class="form-control",
-          placeholder='Search Contacts by Name or Number...'
+          placeholder='Search Contacts by Name or Number'
           />
       </div>
-    </form>
+    </form><br>
     <form action="/#!/newContact">
       <input class='btn btn-info' type="submit" value="Add New Contact" />
     </form>

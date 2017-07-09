@@ -1,6 +1,6 @@
 contacts
   .factory('ContactService', function($resource) {
-      return $resource(
+      const http = () => $resource(
         'http://localhost:8000/contacts/:id/',
         {id:'@id'},
         {
@@ -34,4 +34,10 @@ contacts
           stripTrailingSlashes: false
         }
       );
+      let contactToEdit = {};
+      const setContactToEdit = (contact) => {
+        contactToEdit = contact
+      };
+      const getContactToEdit = () => contactToEdit;
+      return { http, setContactToEdit, getContactToEdit }
   });

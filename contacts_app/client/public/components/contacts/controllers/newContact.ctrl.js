@@ -25,12 +25,15 @@ contacts
     // }
 
     $scope.submitContact = () => {
+      if(!$scope.contact.countryCode){
+        return
+      }
       // $scope.uploadPic($scope.picFile) //For Image Upload
       let formatNumber = $scope.contact.countryCode.dial_code + $scope.contact.number
-      ContactService.query().$promise.then(function(data) {
+      ContactService.http().query().$promise.then(function(data) {
         storedContacts = data.slice(-2)
         if(storedContacts.length<1){
-          ContactService.create({name:$scope.contact.name,number:formatNumber,pic:$scope.picFile}).$promise.then(function(resp){
+          ContactService.http().create({name:$scope.contact.name,number:formatNumber,pic:$scope.picFile}).$promise.then(function(resp){
             $window.location = '/';
           })
         } else {
@@ -41,7 +44,7 @@ contacts
             }
           })
           if(contactMatches.length === 0){
-            ContactService.create({name:$scope.contact.name,number:formatNumber,pic:$scope.picFile}).$promise.then(function(resp){
+            ContactService.http().create({name:$scope.contact.name,number:formatNumber,pic:$scope.picFile}).$promise.then(function(resp){
               $window.location = '/';
             })
           } else {

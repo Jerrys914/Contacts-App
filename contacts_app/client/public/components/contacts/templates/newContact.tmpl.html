@@ -30,15 +30,15 @@
       </div>
       <!-- Photo Upload -->
       <input type="file" ngf-select ng-model="picFile" name="file"
-               accept="image/*" ngf-max-size="2MB" required
+               accept="image/*" ngf-max-size="2MB"
                ngf-model-invalid="errorFile">
         <i ng-show="contactInfoForm.file.$error.maxSize">File too large
             {{errorFile.size / 1000000|number:1}}MB: max 2M</i>
             <div ng-show="contactInfoForm.file.$valid" >
         <img ngf-thumbnail="picFile" class="thumb"> <button class='btn btn-danger' ng-click="picFile = null" ng-show="picFile">Remove</button>
-        
-      <!-- <div ngf-drop ng-model="files" class="drop-box">Drop</div> -->
-
+      <!-- <div ngf-drop ng-model="files" class="drop-box">Drop</div> --></img>
+    </div>
+    <div></div><br>
       <!-- Save Button -->
       <form name="submitForm" method="post" ng-submit="submit()">
         <button class='btn btn-info' ng-disabled="contactInfoForm.$invalid">Submit</button>

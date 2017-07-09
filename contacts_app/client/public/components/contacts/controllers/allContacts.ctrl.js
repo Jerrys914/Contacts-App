@@ -1,7 +1,7 @@
 contacts
   .controller('AllContactsCtrl', function($scope, $window, $location, $http, ContactService) {
     $scope.showContacts = true
-    ContactService.query().$promise.then(function(data) {
+    ContactService.http().query().$promise.then(function(data) {
       if(data.length<1){
         $scope.showContacts = false
       } else {
@@ -10,17 +10,13 @@ contacts
       $scope.contactList = data;
     });
     $scope.edit = (contact) => {
-      console.log(contact);
-      // ContactService.get({id:contact.id})
-      // console.log(note)
-      contact.name = 'J';
-      ContactService.update({id:contact.id}, contact)
-        // ContactService.update()
+      ContactService.setContactToEdit(contact);
+      $location.path('/editContact');
     }
 
     $scope.destroy = (contact) => {
       console.log(contact)
-      ContactService.delete(contact.number,{id:contact.id}).$promise.then(resp=>{
+      ContactService.http().delete({id:contact.id}).$promise.then(resp=>{
         $window.location='/';
       })
     }

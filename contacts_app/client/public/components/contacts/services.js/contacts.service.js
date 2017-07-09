@@ -25,9 +25,6 @@ contacts
           },
           'delete': {
             method:'DELETE',
-            headers: {
-              'Content-Type':'application/json'
-            }
           }
         },
         {
