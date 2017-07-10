@@ -18,7 +18,7 @@ After Anaconda is installed:
 ```
 $ conda create -n env_name
 ```
-Navigate to the root directory of the folder and activate the environment:
+Navigate to the root directory of the application and activate the environment:
 ```
 $ source activate env_name *MacOS
            OR
