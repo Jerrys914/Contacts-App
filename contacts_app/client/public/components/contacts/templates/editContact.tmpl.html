@@ -29,7 +29,7 @@
         <input type="text" ng-change ui-mask="{{'(999) 999-9999'}}" name="number" ng-model="contact.number" required>
       </div>
       <!-- Photo Upload -->
-      <label>Photo Upload</label><br>
+      <!-- <label>Photo Upload</label><br>
       <input type="file" ngf-select ng-model="picFile" name="file"
                accept="image/*" ngf-max-size="2MB"
                ngf-model-invalid="errorFile">
@@ -37,7 +37,7 @@
             {{errorFile.size / 1000000|number:1}}MB: max 2M</i>
             <div ng-show="editContactInfoForm.file.$valid" >
         <img ngf-thumbnail="picFile" class="thumb"> <button class='btn btn-danger' ng-click="picFile = null" ng-show="picFile">Remove</button>
-      </img>
+      </img> -->
     </div>
 
       <!-- Save Button -->

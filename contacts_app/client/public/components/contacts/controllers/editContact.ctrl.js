@@ -4,6 +4,9 @@ contacts
     $scope.contact.number = $scope.contact.phone_number.substr($scope.contact.phone_number.length - 10)
     $scope.countriesList = CountriesService.countryCodes
     $scope.submitContact = () => {
+      if($scope.picFile){
+        // $scope.uploadPic($scope.picFile) //For Edit Image Upload
+      }
       let formatNumber= $scope.contact.countryCode.dial_code + $scope.contact.number
       $scope.contact.number = $scope.contact.countryCode.dial_code + $scope.contact.number
       let contact = {}
@@ -12,7 +15,6 @@ contacts
       contact.pic = $scope.picFile || $scope.contact.pic
       contact.id = $scope.contact.id
       delete $scope.contact.countryCode
-      console.log('contact: ', contact)
       ContactService.http().update({id:contact.id}, contact)
         $window.location = '/';
     }

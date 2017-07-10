@@ -5,6 +5,9 @@ contacts
       if(data.length<1){
         $scope.showContacts = false
       } else {
+        data = data.sort((a,b)=>{
+          return a.name > b.name
+        })
         $scope.showContacts = true
       }
       $scope.contactList = data;

@@ -21,10 +21,10 @@
   <!-- All Contacts View -->
   <div ng-if="showContacts" ng-repeat="contact in contactList | filter:searchText track by $index">
     <div class='well well-lg' style="background:#E4E6FF; text-align:center; font-size:25px; width:30%; margin:auto;">
-      <!-- <i class="material-icons" style="font-size: 48px;">account_circle</i><br> -->
-      <img class ="thumb" src="{{contact.pic.substr(30)}}"></img>
-      <strong style="width:50%; margin:auto;">{{ contact.name }}</strong><br />
+      <img class="pic" src="{{contact.pic.substr(30)}}" style="padding:15px;"></img><br>
+      <h1 style="width:50%; margin:auto;">{{ contact.name }}</h1><br />
       <strong>{{ contact.phone_number }}<a href="tel:{{contact.phone_number}}"><i style="font-size: 36px;" class="material-icons">phone_in_talk</i></a></strong><br />
+      <br>
       <span>
         <button class="btn" title="DELETE" id="deleteButton" type="button" ng-click="destroy(contact)">
           <a href="#"><i class="material-icons" id="deleteIcon">delete</i></a>
