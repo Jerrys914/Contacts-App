@@ -12,7 +12,7 @@ contacts
       let contact = {}
       contact.name = $scope.contact.name
       contact.phone_number = formatNumber;
-      contact.pic = $scope.picFile || $scope.contact.pic
+      contact.pic = $scope.picFile || $scope.contact.pic.substr(30)
       contact.id = $scope.contact.id
       delete $scope.contact.countryCode
       ContactService.http().update({id:contact.id}, contact)
